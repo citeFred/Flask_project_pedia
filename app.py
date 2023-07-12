@@ -29,4 +29,4 @@ def movie_get():
 # if __name__ == "__main__" 의 의미는 메인 함수의 선언, 시작을 의미
 # 이 파이썬 스크립트가 직접 실행될 때에는 main() 함수를 실행하라
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5000, debug=True)
+    app.run('0.0.0.0', port=5001, debug=True)
