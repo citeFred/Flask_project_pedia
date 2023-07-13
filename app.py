@@ -80,11 +80,17 @@ def movie_post():
     # [POST-12] insert가 완료되었으니 완료 메시지를 반환한다.
     return jsonify({'msg':'POST 연결 완료!'+'DB 저장 완료!'})
 
+# [GET-0] CREATE 부분이 테스트 완료되어 DB에 자료가 추가되는 상황, READ로 View 페이지에 DB 데이터를 가져와서 보여주자.
 # fetch('URL')부분, 반환값은 res로 전달.
 # "localhost:5001/movie" URL GET방식 요청에 응답
 @app.route("/movie", methods=["GET"])
 def movie_get():
-    return jsonify({'msg':'GET 연결 완료!'})
+    # [GET-1] 필요한 데이터는? -> DB에서 API 데이터를 가져와야 한다.
+    # READ(FIND)
+    # 여러개 찾기 - 예시 ( _id 값은 제외하고 출력)
+    all_movies = list(db.moviespedia.find({},{'_id':False}))
+    # [GET-2] 가져온 데이터는? -> json으로 변환하여 반환 -> 프론트(js)로 이동
+    return jsonify({'result':all_movies})
 
 # app이라는 메인 함수 
 # if __name__ == "__main__" 의 의미는 메인 함수의 선언, 시작을 의미
