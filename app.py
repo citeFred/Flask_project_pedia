@@ -76,7 +76,7 @@ def movie_post():
         'star':star_receive
     }
     # [POST-11] doc에 담았으니 DB에 insert 한다.
-    db.movies.insert_one(doc)
+    db.moviespedia.insert_one(doc)
     # [POST-12] insert가 완료되었으니 완료 메시지를 반환한다.
     return jsonify({'msg':'POST 연결 완료!'+'DB 저장 완료!'})
 
